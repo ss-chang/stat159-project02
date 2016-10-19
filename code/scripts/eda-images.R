@@ -24,8 +24,10 @@ for (i in 1:ncol(quals)){
   dev.off()
 }
 
+
+
 # ==============================================================================
-# Generating histograms
+# Generating boxplots
 # ==============================================================================
 for (i in 1:ncol(quals)){
   png(paste0("../../images/boxplot-",casefold(names(quals[i])), ".png"))
@@ -34,3 +36,12 @@ for (i in 1:ncol(quals)){
        main = paste0(names(quals[i])))
   dev.off()
 }
+
+
+
+# ==============================================================================
+# Generating scatterplot matrix
+# ==============================================================================
+png("../../images/scatterplot-matrix.png")
+plot(quals)
+dev.off()
