@@ -5,35 +5,35 @@ library(readr)
 credit <- read.csv(file = "../../data/Credit.csv", row.names = 1)
 
 # ==============================================================================
-# Generating summary statistics and output file
+# Exploratory analysis of quantitative variables  and output file
 # ==============================================================================
 # sink output
 sink(file = "../../data/summary-stats.txt")
 
 # Summary statistics
-cat("Summary Statistics for Credit.csv\n")
-credit_summary <- summary(credit)
-print(credit_summary)
+cat("Summary Statistics for Quantitative Variables in Credit.csv\n")
+quals <- sapply(credit, is.numeric)
+quals <- credit[,quals]
+quals_sum<- summary(quals)
+print(quals_sum)
 cat("\n\n\n")
 
 # Standard deviations
 cat("Standard Deviations:\n")
-nums <- sapply(credit, is.numeric)
-nums <- credit[,nums]
-credit_sds <- apply(nums, 2, sd) 
-print(credit_sds)
+quals_sds <- apply(quals, 2, sd) 
+print(quals_sds)
 cat("\n\n\n")
 
 # Interquartile ranges
 cat("Interquartile Ranges:\n")
-credit_iqrs <- apply(nums, 2, IQR)
-print(credit_iqrs)
+quals_iqrs <- apply(quals, 2, IQR)
+print(quals_iqrs)
 cat("\n\n\n")
 
 # Matrix of correlations
 cat("Matrix of Correlations")
-credit_cor <- cor(nums, use = "all.obs")
-print(credit_cor)
+quals_cor <- cor(quals, use = "all.obs")
+print(quals_cor)
 
 # STOP
 sink()
