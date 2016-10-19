@@ -1,0 +1,53 @@
+Summary Statistics for Credit.csv
+     Income           Limit           Rating          Cards            Age       
+ Min.   : 10.35   Min.   :  855   Min.   : 93.0   Min.   :1.000   Min.   :23.00  
+ 1st Qu.: 21.01   1st Qu.: 3088   1st Qu.:247.2   1st Qu.:2.000   1st Qu.:41.75  
+ Median : 33.12   Median : 4622   Median :344.0   Median :3.000   Median :56.00  
+ Mean   : 45.22   Mean   : 4736   Mean   :354.9   Mean   :2.958   Mean   :55.67  
+ 3rd Qu.: 57.47   3rd Qu.: 5873   3rd Qu.:437.2   3rd Qu.:4.000   3rd Qu.:70.00  
+ Max.   :186.63   Max.   :13913   Max.   :982.0   Max.   :9.000   Max.   :98.00  
+   Education        Gender    Student   Married              Ethnicity  
+ Min.   : 5.00    Male :193   No :360   No :155   African American: 99  
+ 1st Qu.:11.00   Female:207   Yes: 40   Yes:245   Asian           :102  
+ Median :14.00                                    Caucasian       :199  
+ Mean   :13.45                                                          
+ 3rd Qu.:16.00                                                          
+ Max.   :20.00                                                          
+    Balance       
+ Min.   :   0.00  
+ 1st Qu.:  68.75  
+ Median : 459.50  
+ Mean   : 520.01  
+ 3rd Qu.: 863.00  
+ Max.   :1999.00  
+
+
+
+Standard Deviations:
+     Income       Limit      Rating       Cards         Age   Education     Balance 
+  35.244273 2308.198848  154.724143    1.371275   17.249807    3.125207  459.758877 
+
+
+
+Interquartile Ranges:
+   Income     Limit    Rating     Cards       Age Education   Balance 
+  36.4635 2784.7500  190.0000    2.0000   28.2500    5.0000  794.2500 
+
+
+
+Matrix of Correlations               Income       Limit      Rating       Cards         Age    Education
+Income     1.00000000  0.79208834  0.79137763 -0.01827261 0.175338403 -0.027691982
+Limit      0.79208834  1.00000000  0.99687974  0.01023133 0.100887922 -0.023548534
+Rating     0.79137763  0.99687974  1.00000000  0.05323903 0.103164996 -0.030135627
+Cards     -0.01827261  0.01023133  0.05323903  1.00000000 0.042948288 -0.051084217
+Age        0.17533840  0.10088792  0.10316500  0.04294829 1.000000000  0.003619285
+Education -0.02769198 -0.02354853 -0.03013563 -0.05108422 0.003619285  1.000000000
+Balance    0.46365646  0.86169727  0.86362516  0.08645635 0.001835119 -0.008061576
+               Balance
+Income     0.463656457
+Limit      0.861697267
+Rating     0.863625161
+Cards      0.086456347
+Age        0.001835119
+Education -0.008061576
+Balance    1.000000000
