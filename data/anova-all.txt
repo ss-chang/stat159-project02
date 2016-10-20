@@ -1,0 +1,12 @@
+ANOVA: balance ~ .
+
+Call:
+   aov(formula = balance ~ ., data = quals)
+
+Terms:
+                  Gender  Student  Married Ethnicity Residuals
+Sum of Squares     38892  5623889    16976     58038  78602117
+Deg. of Freedom        1        1        1         2       394
+
+Residual standard error: 446.6517
+Estimated effects may be unbalanced
