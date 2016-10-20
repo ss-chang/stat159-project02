@@ -1,6 +1,6 @@
 #===============================================================================
 # title: eda-text.R
-# author: Shannon Chang Nura Kawa
+# author: Shannon Chang and Nura Kawa
 #
 # final paper (without figures) 4-5 pages of text
 # description:
