@@ -62,4 +62,4 @@ full_data_fit <- glmnet(x,
 # coef(full_data_fit)
 
 # save official fit as .RDdata
-# save(full_data_fit, file = "../../data/lasso-fit.RData")
+# save(full_data_fit, file = "../../data/ridge-fit.RData")
