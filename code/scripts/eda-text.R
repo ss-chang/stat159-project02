@@ -47,43 +47,46 @@ quants <- credit[,sapply(credit, is.numeric)]
 sink(file = "../../data/eda-output.txt")
 
 # title
-cat("Exploratory Data Analysis for Credit.csv\n")
+cat("Exploratory Data Analysis for Credit.csv\n\n\n")
 
 # Summary statistics
-cat("Summary Statistics for Quantitative Variables")
+cat("Summary Statistics for Quantitative Variables\n")
 quants <- sapply(credit, is.numeric)
 quants <- credit[,quants]
 quants_sum<- summary(quants)
 print(quants_sum)
-cat("\n\n\n")
+cat("\n\n\n\n\n")
 
 # Standard deviations
 cat("Standard Deviations:\n")
-quants_sds <- apply(quants, 2, sd) 
+quants_sds <- round(apply(quants, 2, sd), 4) 
 print(quants_sds)
-cat("\n\n\n")
+cat("\n\n\n\n\n")
 
 # Interquartile ranges
 cat("Interquartile Ranges:\n")
 quants_iqrs <- apply(quants, 2, IQR)
 print(quants_iqrs)
-cat("\n\n\n")
+cat("\n\n\n\n\n")
 
-# Table of frequencies, no proportions
-cat("Individual Frequency Tables \n")
-cat("No proportions: \n")
+
+# Table of frequencies (no proportions)
+# No proportions
+cat("Table of Frequencies (no proportions)\n\n")
+cat("Individual:\n")
 individual_frequencies <- apply(quals, 2, table)
 print(individual_frequencies)
 
+# With proportions
 cat("\n\n")
-cat("With proportions: \n")
+cat("Total:\n")
 total_frequencies <- ftable(table(quals))
 print(total_frequencies)
-cat("\n\n\n")
+cat("\n\n\n\n\n")
 
-# Table of frequencies with proportion
-cat("Total Frequency Tables\n")
-cat("No proportions: \n")
+# Table of frequencies (with proportions)
+cat("Table of Frequencies (with proportions)\n\n")
+cat("Individual:\n")
 make_prop_table <- function(x){prop.table(table(x))}
 prop_table_individual_frequencies <- apply(quals,
                                            2,
@@ -91,14 +94,14 @@ prop_table_individual_frequencies <- apply(quals,
 print(prop_table_individual_frequencies)
 
 cat("\n\n")
-cat("With proportions: \n")
+cat("Total:\n")
 prop_table_total_frequencies <- prop.table(total_frequencies)
 print(prop_table_total_frequencies)
 cat("\n\n\n")
 
 # Matrix of correlations
-cat("Matrix of Correlations")
-quants_cor <- cor(quants, use = "all.obs")
+cat("Matrix of Correlations\n")
+quants_cor <- round(cor(quants, use = "all.obs"), 4)
 print(quants_cor) 
 
 # STOP
