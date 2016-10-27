@@ -1,24 +1,24 @@
 Exploratory Data Analysis for Credit.csv
-Summary Statistics for Quantitative Variables     Income           Limit           Rating          Cards            Age       
- Min.   : 10.35   Min.   :  855   Min.   : 93.0   Min.   :1.000   Min.   :23.00  
- 1st Qu.: 21.01   1st Qu.: 3088   1st Qu.:247.2   1st Qu.:2.000   1st Qu.:41.75  
- Median : 33.12   Median : 4622   Median :344.0   Median :3.000   Median :56.00  
- Mean   : 45.22   Mean   : 4736   Mean   :354.9   Mean   :2.958   Mean   :55.67  
- 3rd Qu.: 57.47   3rd Qu.: 5873   3rd Qu.:437.2   3rd Qu.:4.000   3rd Qu.:70.00  
- Max.   :186.63   Max.   :13913   Max.   :982.0   Max.   :9.000   Max.   :98.00  
-   Education        Balance       
- Min.   : 5.00   Min.   :   0.00  
- 1st Qu.:11.00   1st Qu.:  68.75  
- Median :14.00   Median : 459.50  
- Mean   :13.45   Mean   : 520.01  
- 3rd Qu.:16.00   3rd Qu.: 863.00  
- Max.   :20.00   Max.   :1999.00  
+
+
+Summary Statistics for Quantitative Variables
+     Income           Limit           Rating          Cards            Age          Education        Balance       
+ Min.   : 10.35   Min.   :  855   Min.   : 93.0   Min.   :1.000   Min.   :23.00   Min.   : 5.00   Min.   :   0.00  
+ 1st Qu.: 21.01   1st Qu.: 3088   1st Qu.:247.2   1st Qu.:2.000   1st Qu.:41.75   1st Qu.:11.00   1st Qu.:  68.75  
+ Median : 33.12   Median : 4622   Median :344.0   Median :3.000   Median :56.00   Median :14.00   Median : 459.50  
+ Mean   : 45.22   Mean   : 4736   Mean   :354.9   Mean   :2.958   Mean   :55.67   Mean   :13.45   Mean   : 520.01  
+ 3rd Qu.: 57.47   3rd Qu.: 5873   3rd Qu.:437.2   3rd Qu.:4.000   3rd Qu.:70.00   3rd Qu.:16.00   3rd Qu.: 863.00  
+ Max.   :186.63   Max.   :13913   Max.   :982.0   Max.   :9.000   Max.   :98.00   Max.   :20.00   Max.   :1999.00  
+
+
 
 
 
 Standard Deviations:
-     Income       Limit      Rating       Cards         Age   Education     Balance 
-  35.244273 2308.198848  154.724143    1.371275   17.249807    3.125207  459.758877 
+   Income     Limit    Rating     Cards       Age Education   Balance 
+  35.2443 2308.1988  154.7241    1.3713   17.2498    3.1252  459.7589 
+
+
 
 
 
@@ -28,8 +28,11 @@ Interquartile Ranges:
 
 
 
-Individual Frequency Tables 
-No proportions: 
+
+
+Table of Frequencies (no proportions)
+
+Individual:
 $Gender
 
   Male Female 
@@ -52,7 +55,7 @@ African American            Asian        Caucasian
 
 
 
-With proportions: 
+Total:
                        Ethnicity African American Asian Caucasian
 Gender Student Married                                           
  Male  No      No                              18    16        33
@@ -66,8 +69,11 @@ Female No      No                              25    10        33
 
 
 
-Total Frequency Tables
-No proportions: 
+
+
+Table of Frequencies (with proportions)
+
+Individual:
 $Gender
 x
   Male Female 
@@ -90,7 +96,7 @@ African American            Asian        Caucasian
 
 
 
-With proportions: 
+Total:
                        Ethnicity African American  Asian Caucasian
 Gender Student Married                                            
  Male  No      No                          0.0450 0.0400    0.0825
@@ -104,19 +110,12 @@ Female No      No                          0.0625 0.0250    0.0825
 
 
 
-Matrix of Correlations               Income       Limit      Rating       Cards         Age    Education
-Income     1.00000000  0.79208834  0.79137763 -0.01827261 0.175338403 -0.027691982
-Limit      0.79208834  1.00000000  0.99687974  0.01023133 0.100887922 -0.023548534
-Rating     0.79137763  0.99687974  1.00000000  0.05323903 0.103164996 -0.030135627
-Cards     -0.01827261  0.01023133  0.05323903  1.00000000 0.042948288 -0.051084217
-Age        0.17533840  0.10088792  0.10316500  0.04294829 1.000000000  0.003619285
-Education -0.02769198 -0.02354853 -0.03013563 -0.05108422 0.003619285  1.000000000
-Balance    0.46365646  0.86169727  0.86362516  0.08645635 0.001835119 -0.008061576
-               Balance
-Income     0.463656457
-Limit      0.861697267
-Rating     0.863625161
-Cards      0.086456347
-Age        0.001835119
-Education -0.008061576
-Balance    1.000000000
+Matrix of Correlations
+           Income   Limit  Rating   Cards    Age Education Balance
+Income     1.0000  0.7921  0.7914 -0.0183 0.1753   -0.0277  0.4637
+Limit      0.7921  1.0000  0.9969  0.0102 0.1009   -0.0235  0.8617
+Rating     0.7914  0.9969  1.0000  0.0532 0.1032   -0.0301  0.8636
+Cards     -0.0183  0.0102  0.0532  1.0000 0.0429   -0.0511  0.0865
+Age        0.1753  0.1009  0.1032  0.0429 1.0000    0.0036  0.0018
+Education -0.0277 -0.0235 -0.0301 -0.0511 0.0036    1.0000 -0.0081
+Balance    0.4637  0.8617  0.8636  0.0865 0.0018   -0.0081  1.0000
