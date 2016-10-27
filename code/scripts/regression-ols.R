@@ -2,7 +2,7 @@
 # Load relevant package and training and testing data
 # ==============================================================================
 library(ggplot2)
-load("../../data/training-testing-objects.RData")
+load("../../data/train-test.RData")
 
 
 
