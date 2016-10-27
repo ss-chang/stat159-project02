@@ -1,0 +1,38 @@
+---
+output: pdf_document
+---
+
+In this section we discuss conceptually the algorithms we use to build prediction models: Least Squares, Ridge Regression, LASSO Regression, Principal Componenent Regression, and Partial Least Squares Regression.
+
+
+## Least Squares Regression
+
+The linear model with several explanatory variables is given by the equation: 
+
+$$ y_i = \beta_0 + \beta_1x_1 + ... + \beta_nx_n + \epsilon_i, i = (1,...,n)$$
+
+For _n_ responses we write the model in matrix form $Y = X\beta + \epsilon$, 
+
+```{r, echo=F, results='asis'}
+#library(devtools)
+#install_github("markheckmann/mat2tex")
+
+library(mat2tex)
+
+Y <- matrix(c("y1", "y2", "...", "yn"), ncol=1, byrow=T)
+
+X <- matrix(c("x11", "x12", "...", "x1p",
+            "x21", "x22", "...", "x2p",
+            ".", " ", " ", ".",
+            ".", " ", " ", ".",
+            ".", " ", " ", ".",
+            "xn1", ".", ".", "xnp"),
+            nrow = 6, byrow = T)
+
+B = matrix(c("\beta_1", "\beta_2", "...", "\beta_n"))
+
+xx("Y=", Y)
+xx("X=",  X)
+xx("beta=", B)
+```
+
