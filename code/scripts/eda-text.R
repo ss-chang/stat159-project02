@@ -1,6 +1,6 @@
 #===============================================================================
 # title: eda-text.R
-# author: Shannon Chang and Nura Kawa
+# author: Shannon Chang Nura Kawa
 #
 # final paper (without figures) 4-5 pages of text
 # description:
@@ -135,3 +135,13 @@ for(j in 2:ncol(quals))
   sink()
   #rm(doc_title)
 }
+
+
+
+
+
+# ==============================================================================
+# Export objects needed for report compilation
+# ==============================================================================
+save(quants_cor, 
+     file = "../../data/eda-text-output.RData")
