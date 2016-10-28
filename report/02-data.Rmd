@@ -1,0 +1,79 @@
+---
+output: pdf_document
+---
+```{r, eval = TRUE, echo = FALSE, message = FALSE}
+library(png)
+library(grid)
+library(gridExtra)
+library(xtable)
+load("../data/eda-text-output.RData")
+```
+
+# Data
+The `Credit.csv` dataset consists of `balance` observations (average credit card debt) 
+for 400 different individuals, as well as observations for a number of quantitative 
+and qualitative variables detailed below: 
+  
+## Quantitative Variables
+* `age`  
+* `cards` (number of credit cards)  
+* `education` (years of education)  
+* `income`(in thousands of dollars)  
+* `limit` (credit limit)  
+* `rating` (credit rating) 
+  
+A very general overview of the distribution for each variable is provided in the 
+histograms and boxplots below: 
+
+```{r, eval = TRUE, echo = FALSE, message = FALSE}
+age_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-age.png")), interpolate = FALSE)
+age_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-age.png")), interpolate = FALSE)
+balance_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-balance.png")), interpolate = FALSE)
+balance_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-balance.png")), interpolate = FALSE)
+cards_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-cards.png")), interpolate = FALSE)
+cards_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-cards.png")), interpolate = FALSE)
+education_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-education.png")), interpolate = FALSE)
+education_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-education.png")), interpolate = FALSE)
+income_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-income.png")), interpolate = FALSE)
+income_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-income.png")), interpolate = FALSE)
+limit_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-limit.png")), interpolate = FALSE)
+limit_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-limit.png")), interpolate = FALSE)
+rating_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-rating.png")), interpolate = FALSE)
+rating_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-rating.png")), interpolate = FALSE)
+
+grid.arrange(age_hist,
+             age_bp, 
+             ncol = 2)
+grid.arrange(balance_hist, 
+             balance_bp, 
+             ncol = 2)
+grid.arrange(cards_hist,
+             cards_bp,
+             ncol = 2)
+grid.arrange(education_hist,
+             education_bp, 
+             ncol = 2)
+grid.arrange(income_hist, 
+             income_bp, 
+             ncol = 2)
+grid.arrange(limit_hist,
+             limit_bp,
+             ncol = 2)
+grid.arrange(rating_hist,
+             rating_bp,
+             ncol = 2)
+```
+
+A scatterplot matrix for all quantitative variables and a matrix of correlations are
+displayed below:  
+```{r, eval = TRUE, echo = FALSE, fig.width = 6, fig.height = 6, fig.align='center'}
+matrix <- readPNG("../images/scatterplot-matrix.png")
+grid.raster(matrix)
+```
+
+```{r, eval = TRUE, echo = FALSE, results = "asis", message = FALSE}
+cor_tab <- xtable(quants_cor, 
+                  digits = 4,
+                  caption = c("Matrix of Correlations for all Quantitative Variables"))
+print.xtable(cor_tab, comment = FALSE, caption.placement = "top")
+```
