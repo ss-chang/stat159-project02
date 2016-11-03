@@ -1,0 +1,39 @@
+---
+output: pdf_document
+---
+#results
+
+
+## LASSO Regression
+
+
+```{r, echo=F, warning=F, message=F}
+load(file = "../../data/regression/lasso-fit.RData")
+```
+
+
+The LASSO shrunk the predictors Education, Gender, Married, and Ethnicity to zero, leaving Income, Limit, Rating, Cards, Age and Student as significant predictors. The most significant predictor is Limit with a coefficient value of approximately 0.93.
+
+```{r xtable, echo=F, warning=F, message=F, results='asis'}
+library(xtable)
+coef_table <- xtable(coef(full_data_fit))
+print(coef_table, type="latex", comment = F, label = "Table 1")
+```
+
+
+## Partial Least Squares Regression
+
+
+
+
+## Comparing Methods
+
+coefficient table for all coefficients is here:
+
+
+Table of all the MSE:
+
+Table of the Prediction errors for each train/test model:
+
+
+
