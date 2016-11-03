@@ -22,14 +22,13 @@ load("../../data/train-test.RData")
 # ==============================================================================
 ols_fit <- lm(y_train~x_train)
 
+ols_fit_sum <- summary(ols_fit)
 
 
 # ==============================================================================
 # Compute mean square error for the test set
 # ==============================================================================
-ols_fit_sum <- summary(ols_fit)
-
-ols_mse <- mean(ols_fit_sum$residuals^2)
+ols_mse <- mean(summary(lm(y_test~x_test)$residuals^2))
 
 
 
