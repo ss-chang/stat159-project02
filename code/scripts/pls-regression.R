@@ -3,9 +3,9 @@
 # author: Nura Kawa
 # 
 # summary: 
-# + fit a PLS model to standardized credit dataset
+# + pls_fit a PLS model to standardized credit dataset
 # + make predictions using training/testing sets
-# + fit model on full data
+# + pls_fit model on full data
 # ==============================================================================
 
 # load data
@@ -14,38 +14,38 @@ library(pls)
 # load training-testing data
 load("../../data/train-test.RData")
 
-# fit the PLS model
+# pls_fit the PLS model
 
-fit <- plsr(y_train ~ x_train,
-            scale = FALSE,
-            validation = "CV")
+pls_fit <- plsr(y_train ~ x_train,
+                scale = FALSE,
+                validation = "CV")
 
 
 
 # select best model
-best_model <- which.min(fit$validation$PRESS) #best number of components
+pls_best_model <- which.min(pls_fit$validation$PRESS) #best number of components
 
 # plot tuning parameter
-validationplot(fit, val.type = "MSEP")
+validationplot(pls_fit, val.type = "MSEP")
 
-# coefficients of our fit
-coef(fit)
+# coefficients of our pls_fit
+coef(pls_fit)
 
 # compute mean square error
-predictions <- predict(fit, x_test, s = best_model)
+predictions <- predict(pls_fit, x_test, s = pls_best_model)
 
-mse <- mean((y_test - predictions)^2)
+pls_mse <- mean((y_test - predictions)^2)
 
-# official fit on full dataset
-full_data_fit <- plsr(y ~ x,
-                      scale = FALSE,
-                      validation = "CV",
-                      ncomp = best_model)
+# official pls_fit on full dataset
+full_data_pls_fit <- plsr(y ~ x,
+                          scale = FALSE,
+                          validation = "CV",
+                          ncomp = pls_best_model)
 
-#coef(full_data_fit)
+#coef(full_data_pls_fit)
 
-# save official fit as .RDdata
+# save official pls_fit as .RDdata
 
-#save(full_data_fit, file = "../../data/regression/lasso-fit.RData")
+#save(full_data_pls_fit, file = "../../data/regression/plsr-pls_fit.RData")
 
 
