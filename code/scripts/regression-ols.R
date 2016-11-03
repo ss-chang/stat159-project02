@@ -1,7 +1,18 @@
 # ==============================================================================
-# Load relevant package and training and testing data
+# title: regression-ols.R
+# author: Shannon Chang
+# 
+# summary: 
+# + fit an Ordinary Least Squares model to standardized credit dataset
+# + make predictions using training/testing sets
+# + fit model on full data
 # ==============================================================================
-library(ggplot2)
+
+
+
+# ==============================================================================
+# Load training and testing data
+# ==============================================================================
 load("../../data/train-test.RData")
 
 
@@ -9,16 +20,16 @@ load("../../data/train-test.RData")
 # ==============================================================================
 # Fit ordinary least squares regression
 # ==============================================================================
-fit <- lm(y_train~x_train)
+ols_fit <- lm(y_train~x_train)
 
 
 
 # ==============================================================================
 # Compute mean square error for the test set
 # ==============================================================================
-fit_sum <- summary(fit)
+ols_fit_sum <- summary(ols_fit)
 
-mse <- mean(fit_sum$residuals^2)
+ols_mse <- mean(ols_fit_sum$residuals^2)
 
 
 
@@ -26,9 +37,15 @@ mse <- mean(fit_sum$residuals^2)
 # Refit the OLS regression on the full data set
 # ==============================================================================
 # official fit on full dataset
-full_data_fit <- lm(y~x)
+full_data_ols_fit <- lm(y~x)
 
-# coef(full_data_fit)
+coef(full_data_ols_fit)
 
-# save official fit as .RDdata
-# save(full_data_fit, file = "../../data/pcr-fit.RData")
+# ==============================================================================
+# Save relevant objects in fit-ols.RData
+# ==============================================================================
+save(ols_fit,
+     ols_fit_sum, 
+     ols_mse, 
+     full_data_ols_fit, 
+     file = "../../data/regression/fit-ols.RData")

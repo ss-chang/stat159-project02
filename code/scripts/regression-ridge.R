@@ -9,20 +9,20 @@ load("../../data/train-test.RData")
 # ==============================================================================
 # Perform 10-fold cross-validation on train set
 # ==============================================================================
-fit <- cv.glmnet(x_train,
-                 y_train,
-                 alpha = 0, # RIDGE parameter
-                 lambda = grid <- 10^seq(10, -2, length = 100),
-                 nfolds = 10, # performs 10-fold cross validation
-                 standardize = FALSE, # we already standardized our data
-                 intercept = FALSE)
+ridge_fit <- cv.glmnet(x_train,
+                       y_train,
+                       alpha = 0, # ridge parameter
+                       lambda = grid <- 10^seq(10, -2, length = 100),
+                       nfolds = 10, # performs 10-fold cross validation
+                       standardize = FALSE, # we already standardized our data
+                       intercept = FALSE)
 
 
 
 # ==============================================================================
 # Select the best model
 # ==============================================================================
-best_lambda <- fit$lambda.min
+ridge_best_model <- ridge_fit$lambda.min
 
 
 
@@ -30,10 +30,10 @@ best_lambda <- fit$lambda.min
 # Produce visualization of which parameter gives the "best" model
 # ==============================================================================
 # plot tuning parameter
-plot(fit)
+plot(ridge_fit)
 
 # coefficients of our fit
-coef(fit)
+coef(ridge_fit)
 
 
 
@@ -41,9 +41,9 @@ coef(fit)
 # Compute mean square error for the test set
 # ==============================================================================
 # compute mean square error
-predictions <- predict(fit, x_test, s = best_lambda)
+ridge_predictions <- predict(ridge_fit, x_test, s = ridge_best_model)
 
-mse <- mean((y_test - predictions)^2)
+ridge_mse <- mean((y_test - ridge_predictions)^2)
 
 
 
@@ -51,14 +51,23 @@ mse <- mean((y_test - predictions)^2)
 # Refit the ridge regression on the full data set
 # ==============================================================================
 # official fit on full dataset
-full_data_fit <- glmnet(x,
-                        y,
-                        alpha = 0, # RIDGE parameter
-                        lambda = best_lambda,
-                        standardize = FALSE,
-                        intercept = FALSE)
+full_data_ridge_fit <- glmnet(x,
+                              y,
+                              alpha = 0, # ridge parameter
+                              lambda = ridge_best_model,
+                              standardize = FALSE,
+                              intercept = FALSE)
 
-# coef(full_data_fit)
+coef(full_data_ridge_fit)
 
-# save official fit as .RDdata
-# save(full_data_fit, file = "../../data/ridge-fit.RData")
+
+
+# ==============================================================================
+# Save relevant objects in fit-ridge.RData
+# ==============================================================================
+save(ridge_fit,
+     ridge_best_model, 
+     ridge_predictions, 
+     ridge_mse, 
+     full_data_ridge_fit, 
+     file = "../../data/regression/ridge-fit.RData")
