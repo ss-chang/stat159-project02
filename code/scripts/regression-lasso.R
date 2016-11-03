@@ -51,4 +51,4 @@ save(lasso_fit,
      lasso_best_model, 
      lasso_predictions, 
      lasso_mse, 
-     full_data_lasso_fit, file = "../../data/fit-lasso.RData")
+     full_data_lasso_fit, file = "../../data/regression/fit-lasso.RData")

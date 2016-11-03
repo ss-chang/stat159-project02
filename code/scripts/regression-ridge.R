@@ -70,4 +70,4 @@ save(ridge_fit,
      ridge_predictions, 
      ridge_mse, 
      full_data_ridge_fit, 
-     file = "../../data/regression/ridge-fit.RData")
+     file = "../../data/regression/fit-ridge.RData")
