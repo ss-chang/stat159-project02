@@ -125,7 +125,7 @@ plot_qual_boxplots <- function(method, extension, folder)
     boxplot(balance ~ quals[,i], data = quals,
             main = paste0("boxplot of balance with respect to ",
                           boxplot_name),
-            col = "darkgreen")
+            col = "white")
     
     dev.off()
     rm(boxplot_name)
@@ -165,7 +165,7 @@ plot_qual_barcharts <- function(method, extension, folder)
                extension)
     
     barplot(prop_table_individual_frequencies[[i]],
-            col = "tomato",
+            col = "white",
             main = paste0("barchart: ", chart_name))
     
     dev.off()

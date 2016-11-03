@@ -99,6 +99,7 @@ prop_table_total_frequencies <- prop.table(total_frequencies)
 print(prop_table_total_frequencies)
 cat("\n\n\n")
 
+
 # Matrix of correlations
 cat("Matrix of Correlations\n")
 quants_cor <- round(cor(quants, use = "all.obs"), 4)
@@ -106,9 +107,6 @@ print(quants_cor)
 
 # STOP
 sink()
-
-
-
 
 
 # ==============================================================================
@@ -148,3 +146,5 @@ for(j in 2:ncol(quals))
 # ==============================================================================
 save(quants_cor, 
      file = "../../data/eda-text-output.RData")
+
+save(prop_table_total_frequencies, file="../../data/prop-table-quals.RData")
