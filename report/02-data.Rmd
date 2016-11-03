@@ -1,7 +1,7 @@
 ---
 output: pdf_document
 ---
-```{r, eval = TRUE, echo = FALSE, message = FALSE}
+```{r, eval = TRUE, echo = FALSE, message = FALSE, warning=FALSE}
 library(png)
 library(grid)
 library(gridExtra)
@@ -77,3 +77,74 @@ cor_tab <- xtable(quants_cor,
                   caption = c("Matrix of Correlations for all Quantitative Variables"))
 print.xtable(cor_tab, comment = FALSE, caption.placement = "top")
 ```
+
+##Qualitative Variables
+* `gender`  (m/f)
+* `student` (yes/no)  
+* `married` (yes/no)  
+* `ethnicity`(caucasian/asian/african american)  
+
+All of these variables are factors with two or three levels, so the best way to explore their distribution is through frequency tables and plots that display `Balance` with respect to a qualitative variable.
+
+
+Below is a proportional frequency table for all qualitative variables:
+
+```{r, echo=F, message=F}
+# load the qualitative data
+load("../data/prop-table-quals.RData")
+
+print(prop_table_total_frequencies)
+```
+
+Below are conditional boxplots of `Balance` with respect to each qualitative variable:
+
+![](../images/qualitative/boxplots/conditional-boxplot-ethnicity.png){width=250px} ![](../images/qualitative/boxplots/conditional-boxplot-gender.png){width=250px}
+  
+![](../images/qualitative/boxplots/conditional-boxplot-married.png){width=250px} ![](../images/qualitative/boxplots/conditional-boxplot-student.png){width=250px}
+
+
+
+
+
+## Data Pre-Processing
+
+### Scaling
+Using data with multiple predictors presents the problem of different scalings. For example, a person's age is typically between 0 and 100, while a person's income is at a much larger scale. In order to use both as predictors for a response, it is essential to standardize their ranges. To do this, we use the R function "scale", which subtracts from each vector its mean and divides each vector by its standard deviation.
+
+### Training and Testing Sets
+Oftentimes fitting a model to data is for the purpose of predicting future observations. Given a full dataset we can simulate "past" and "future" observations by dividing the data into _training_ and _testing_ sets. A model is fit, or "trained", to the training set. The testing set becomes "new" data that the model tries to predict. Since we have the response values of our testing set, we can calculate the difference between our predictions and our true values to assess model. Here is what we did:
+
+```{r train-test, eval=F, echo=T}
+# take a random sample whose size is 75% of the number of observations of our data (number_rows):
+
+# compute total number of rows of our data; should be 400
+number_rows <- nrow(scaled_credit)
+
+# set seed 
+set.seed(10)
+
+# take 75% of the rows as training by randomly sampling from number_rows
+training_rows <- sample(1:number_rows, 0.75*number_rows,
+                        replace = F)
+
+# assign training and testing sets based on these rows
+
+# y is our response, "Balance". 
+y <- as.matrix(scaled_credit$Balance)
+
+# x is our predictors
+x <- as.matrix(scaled_credit[,-ncol(scaled_credit)]) #removing "balance"
+
+# split into training and testing for x and y
+y_train <- y[training_rows,]
+x_train <- x[training_rows,]
+y_test <- y[-training_rows,]
+x_test <- x[-training_rows,]
+```
+
+
+
+
+
+
+
