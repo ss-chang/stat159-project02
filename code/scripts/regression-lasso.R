@@ -78,3 +78,25 @@ save(lasso_fit,
      lasso_coefficients,
      lasso_full_data_fit, 
      file = "../../data/regression/fit-lasso.RData")
+
+
+# ==============================================================================
+# sink as .txt 
+# ==============================================================================
+sink("../../data/regression/fit-lasso.txt")
+
+cat("LASSO Regression Objects\n\n")
+
+cat("LASSO fit\n\n")
+
+lasso_fit
+
+cat("LASSO best model\n\n")
+
+lasso_best_model
+
+cat("LASSO coefficients\n\n")
+
+lasso_coefficients
+
+sink()

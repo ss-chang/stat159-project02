@@ -87,3 +87,25 @@ save(ridge_fit,
      ridge_coefficients,
      ridge_full_data_fit, 
      file = "../../data/regression/fit-ridge.RData")
+
+
+# ==============================================================================
+# sink as .txt 
+# ==============================================================================
+sink("../../data/regression/fit-ridge.txt")
+
+cat("ridge Regression Objects\n\n")
+
+cat("ridge fit\n\n")
+
+ridge_fit
+
+cat("ridge best model\n\n")
+
+ridge_best_model
+
+cat("ridge coefficients\n\n")
+
+ridge_coefficients
+
+sink()
