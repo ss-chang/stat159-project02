@@ -25,7 +25,7 @@ and qualitative variables detailed below:
 A very general overview of the distribution for each variable is provided in the 
 histograms and boxplots below: 
 
-```{r, eval = TRUE, echo = FALSE, message = FALSE}
+```{r, eval = TRUE, echo = FALSE, message = FALSE, fig.width = 9, fig.height = 9}
 age_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-age.png")), interpolate = FALSE)
 age_bp <- rasterGrob(as.raster(readPNG("../images/quantitative/boxplots/boxplot-age.png")), interpolate = FALSE)
 balance_hist <- rasterGrob(as.raster(readPNG("../images/quantitative/histograms/histogram-balance.png")), interpolate = FALSE)
@@ -100,9 +100,6 @@ Below are conditional boxplots of `Balance` with respect to each qualitative var
 ![](../images/qualitative/boxplots/conditional-boxplot-ethnicity.png){width=250px} ![](../images/qualitative/boxplots/conditional-boxplot-gender.png){width=250px}
   
 ![](../images/qualitative/boxplots/conditional-boxplot-married.png){width=250px} ![](../images/qualitative/boxplots/conditional-boxplot-student.png){width=250px}
-
-
-
 
 
 ## Data Pre-Processing

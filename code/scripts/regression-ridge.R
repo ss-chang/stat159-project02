@@ -58,7 +58,11 @@ full_data_fit <- glmnet(x,
                         standardize = FALSE,
                         intercept = FALSE)
 
+# renaming
+full_data_ridge_fit <- full_data_fit
+
+
 # coef(full_data_fit)
 
 # save official fit as .RDdata
-# save(full_data_fit, file = "../../data/ridge-fit.RData")
+save(full_data_ridge_fit, file = "../../data/ridge-fit.RData")

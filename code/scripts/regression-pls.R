@@ -34,15 +34,16 @@ validationplot(pls_fit, val.type = "MSEP")
 coef(pls_fit)
 
 # compute mean square error
-predictions <- predict(pls_fit, x_test, s = pls_best_model)
+pls_predictions <- predict(pls_fit, x_test, s = pls_best_model)
 
-pls_mse <- mean((y_test - predictions)^2)
+pls_mse <- mean((y_test - pls_predictions)^2)
 
 # official pls_fit on full dataset
 full_data_pls_fit <- plsr(y ~ x,
                           scale = FALSE,
                           validation = "CV",
                           ncomp = pls_best_model)
+<<<<<<< HEAD
 
 coef(full_data_pls_fit)
 
@@ -51,3 +52,14 @@ coef(full_data_pls_fit)
 save(full_data_pls_fit, file = "../../data/pls-fit.RData")
 
 
+=======
+coef(full_data_pls_fit)
+
+# save official pls_fit as .RDdata
+save(pls_fit,
+     pls_best_model, 
+     pls_predictions, 
+     pls_mse, 
+     full_data_pls_fit, 
+     file = "../../data/regression/fit-pls.RData")
+>>>>>>> 8afd598d90ab8c5d0034a9937e85660e2e41e590
