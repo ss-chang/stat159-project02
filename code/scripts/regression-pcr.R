@@ -47,9 +47,12 @@ dev.off()
 # ==============================================================================
 # Compute mean square error for the test set
 # ==============================================================================
-pcr_predictions <- predict(pcr_fit, x_test, s = pcr_best_model)
+pcr_predictions <- predict(pcr_fit, 
+                           ncomp = pcr_best_model,
+                           newdata = x_test)
 
 pcr_mse <- mean((y_test - pcr_predictions)^2)
+
 
 
 
@@ -58,10 +61,11 @@ pcr_mse <- mean((y_test - pcr_predictions)^2)
 # ==============================================================================
 # official fit on full dataset
 
-pcr_full_data_fit <- pcr(y~x,
+pcr_full_data_fit <- pcr(y~x,scale = FALSE,
+                         ncomp = pcr_best_model,
                      validation = "CV")
 
-pcr_coefficients <- coef(full_data_pcr_fit)
+pcr_coefficients <- coef(pcr_full_data_fit)
 
 
 # ==============================================================================

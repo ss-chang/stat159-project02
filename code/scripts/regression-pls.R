@@ -56,7 +56,8 @@ dev.off()
 # ==============================================================================
 # compute mean square error and predictions
 # ==============================================================================
-pls_predictions <- predict(pls_fit, x_test, s = pls_best_model)
+pls_predictions <- predict(pls_fit, x_test, 
+                           ncomp = pls_best_model)
 
 pls_mse <- mean((y_test - pls_predictions)^2)
 
