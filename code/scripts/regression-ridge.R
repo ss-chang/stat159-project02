@@ -41,7 +41,16 @@ ridge_best_lambda <- ridge_fit$lambda.min
 # Produce visualization of which parameter gives the "best" model
 # ==============================================================================
 # plot tuning parameter
-ridge_plot <- plot(ridge_fit)
+
+
+png("../../images/regression-plots/ridge-plot.png")
+plot(ridge_fit)
+dev.off()
+
+pdf("../../images/regression-plots/ridge-plot.pdf")
+plot(ridge_fit)
+dev.off()
+
 
 # ==============================================================================
 # Compute mean square error for the test set
