@@ -1,0 +1,36 @@
+---
+title: "Project 2: Examinings Methods to Improve Linear Regression"
+author: Shannon Chang and Nura Kawa
+date: November 4, 2016
+output: pdf_document
+header-includes:
+- \usepackage{placeins}
+---
+
+\FloatBarrier
+```{r child = '00-abstract.Rmd'}
+```
+
+\FloatBarrier
+```{r child = '01-introduction.Rmd'}
+```
+
+\FloatBarrier
+```{r child = '02-data.Rmd'}
+```
+
+\FloatBarrier
+```{r child = '03-methods.Rmd'}
+```
+
+\FloatBarrier
+```{r child = '04-analysis.Rmd'}
+```
+
+\FloatBarrier
+```{r child = '05-results.Rmd'}
+```
+
+\FloatBarrier
+```{r child = '06-conclusions.Rmd', warning = FALSE}
+```
