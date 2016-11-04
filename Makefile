@@ -1,5 +1,5 @@
 # Declare phony target
-.PHONY: all data eda ols ridge lasso pcr plsr regressions report slides session clean
+.PHONY: all data tests eda ols ridge lasso pcr plsr regressions report slides session clean
 
 # all	
 all: eda regressions report 
@@ -19,6 +19,10 @@ regressions:
 # Download Credit.csv
 data : 
 	cd data; curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv >> Credit.csv
+
+# Execute unit tests on regression functions
+tests: 
+	cd code/tests; Rscript -e 'source("test-that.R")'
 
 # Perform exploratory data analysis
 eda : 
