@@ -3,13 +3,31 @@ output: pdf_document
 ---
 #results
 
+We now look at the results of fitting four regression models to our dataset. We report results of each method individually. We then compare the performance within each type (dimensionality reduction methods and shrinkage methods). Finally, we evaluate the performance of all models with Ordinary Least Squares, seeing which model or type of model produced the best fit.
 
-## LASSO Regression
 
+## Dimensionality Reduction Methods
+
+
+### Partial Least Squares Regression
+
+```{r, echo=F}
+load("../data/regression/fit-pls.RData")
+```
+
+
+### Principal Component Regression
+
+```{r, echo=F}
+load("../data/regression/fit-pcr.RData")
+```
+
+## Shrinkage Methods
+
+### LASSO Regression
 
 ```{r, echo=F, warning=F, message=F}
-load("../data/lasso-fit.RData")
-full_data_lasso_fit <- full_data_fit
+load("../data/regression/fit-lasso.RData")
 ```
 
 The LASSO shrunk the predictors Education, Gender, Married, and Ethnicity to zero, leaving Income, Limit, Rating, Cards, Age and Student as significant predictors. The most significant predictor is Limit with a coefficient value of approximately 0.93.
@@ -22,32 +40,23 @@ The LASSO shrunk the predictors Education, Gender, Married, and Ethnicity to zer
 #print(coef_table, type="latex", comment = F, label = "Table 1")
 ```
 
-## Ridge Regression
+### Ridge Regression
 
 ```{r, echo=F}
-load("../data/ridge-fit.RData")
+load("../data/regression/fit-ridge.RData")
 ```
-
-
-
-## Principal Component Regression
-
-```{r, echo=F}
-load("../data/pcr-fit.RData")
-```
-
-
-## Partial Least Squares Regression
-
-```{r}
-load("../data/pls-fit.RData")
-validationplot(full_data_pls_fit)
-```
-
 
 
 
 ## Comparing Methods
+
+```{r, echo=F}
+load("../data/regression/fit-ols.RData")
+```
+
+
+
+
 
 coefficient table for all coefficients is here:
 
