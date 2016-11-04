@@ -7,7 +7,7 @@ load("../../data/train-test.RData")
 
 
 # ==============================================================================
-# Perform 10-fold cross-validation on train set
+# # Fit the ridge model on training data
 # ==============================================================================
 ridge_fit <- cv.glmnet(x_train,
                        y_train,
@@ -48,7 +48,7 @@ ridge_mse <- mean((y_test - ridge_predictions)^2)
 
 
 # ==============================================================================
-# Refit the ridge regression on the full data set
+# Refit the ridge model on the full data set
 # ==============================================================================
 # official fit on full dataset
 full_data_ridge_fit <- glmnet(x,

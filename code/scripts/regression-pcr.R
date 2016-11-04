@@ -19,18 +19,19 @@ load("../../data/train-test.RData")
 
 
 # ==============================================================================
-# Perform 10-fold cross-validation on train set
+# Fit the PCR model on the training data
 # ==============================================================================
 pcr_fit <- pcr(y_train~x_train, 
                scale = FALSE, 
-               validation = "CV")
+               validation = "CV" # performs 10-fold cross validation
+               )
 
 
 
 # ==============================================================================
 # Select the best model
 # ==============================================================================
-pcr_best_model <- pcr_fit$validation$PRESS
+pcr_best_model <- which.min(pcr_fit$validation$PRESS) #best number of components
 
 
 
@@ -53,7 +54,7 @@ pcr_mse <- mean((y_test - pcr_predictions)^2)
 
 
 # ==============================================================================
-# Refit the ridge regression on the full data set
+# Refit the PCR model on the full data set
 # ==============================================================================
 # official fit on full dataset
 full_data_pcr_fit <- pcr(y~x,
@@ -67,7 +68,7 @@ coef(full_data_pcr_fit)
 # Save relevant objects in fit-pcr.RData
 # ==============================================================================
 save(pcr_fit, 
-     pcr_best_lambda, 
+     pcr_best_model, 
      pcr_predictions, 
      pcr_mse, 
      full_data_pcr_fit, 
