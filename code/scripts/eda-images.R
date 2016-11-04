@@ -184,7 +184,7 @@ png("../../images/scatterplot-matrix.png")
 plot(quants)
 dev.off()
 
-pdf("../../images/scatterplot-matrix.png")
+pdf("../../images/scatterplot-matrix.pdf")
 plot(quants)
 dev.off()
 
