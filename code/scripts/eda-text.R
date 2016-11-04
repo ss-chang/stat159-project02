@@ -152,7 +152,7 @@ for(j in 2:ncol(quals))
 # ==============================================================================
 # Export objects needed for report compilation
 # ==============================================================================
-save(quants_ranges, 
+save(quants, 
      quants_cor, 
      file = "../../data/eda-text-output.RData")
 
