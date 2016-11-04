@@ -98,9 +98,9 @@ print(prop_table_total_frequencies)
 
 Below are conditional boxplots of `Balance` with respect to each qualitative variable:
 
-![](../images/qualitative/boxplots/conditional-boxplot-ethnicity.png){width=250px} ![](../images/qualitative/boxplots/conditional-boxplot-gender.png){width=250px}
+![](../images/qualitative/boxplots/conditional-boxplot-ethnicity.png){width=300px} ![](../images/qualitative/boxplots/conditional-boxplot-gender.png){width=300px}
   
-![](../images/qualitative/boxplots/conditional-boxplot-married.png){width=250px} ![](../images/qualitative/boxplots/conditional-boxplot-student.png){width=250px}
+![](../images/qualitative/boxplots/conditional-boxplot-married.png){width=300px} ![](../images/qualitative/boxplots/conditional-boxplot-student.png){width=300px}
 
 
 
@@ -115,7 +115,8 @@ Using data with multiple predictors presents the problem of different scalings. 
 Oftentimes fitting a model to data is for the purpose of predicting future observations. Given a full dataset we can simulate "past" and "future" observations by dividing the data into _training_ and _testing_ sets. A model is fit, or "trained", to the training set. The testing set becomes "new" data that the model tries to predict. Since we have the response values of our testing set, we can calculate the difference between our predictions and our true values to assess model. Here is what we did:
 
 ```{r train-test, eval=F, echo=T}
-# take a random sample whose size is 75% of the number of observations of our data (number_rows):
+# take a random sample whose size is 75% of the number of observations of our data 
+# (number_rows):
 
 # compute total number of rows of our data; should be 400
 number_rows <- nrow(scaled_credit)
@@ -141,10 +142,3 @@ x_train <- x[training_rows,]
 y_test <- y[-training_rows,]
 x_test <- x[-training_rows,]
 ```
-
-
-
-
-
-
-
