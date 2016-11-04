@@ -1,0 +1,11 @@
+---
+output: pdf_document
+---
+
+# conclusions
+
+Our results show highly similar test MSE values and coefficients. The question now becomes the selection of a "winning method". Ultimately, we find that our best method is Partial Least Squares Regression due to its having the smallest Mean Squared Error.
+
+However, as mentioned before, reproducing this paper several times could have slightly different results in terms of both coefficients and MSE values. It is also important to note that the `Advertising` dataset is relatively "small", with only 400 observations and 11 predictors. Our penalized regression methods only showed a small improvement over Least Squares. Our results would have likely been more varied had we been given more observations and/or more predictors. There likely would have been a larger difference in Mean Squared Error as well, making it easier to select a "winning method". 
+
+Thus, we conclude that the best model for this dataset is PLS Regression, possibly due to the combination of supervised prediction with dimensionality reduction. However, the difference between performance of all methods is quite small, showing that PLS won only narrowly.
