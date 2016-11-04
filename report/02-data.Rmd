@@ -86,7 +86,6 @@ print.xtable(cor_tab, comment = FALSE, caption.placement = "top")
 
 All of these variables are factors with two or three levels, so the best way to explore their distribution is through frequency tables and plots that display `Balance` with respect to a qualitative variable.
 
-
 Below is a proportional frequency table for all qualitative variables:
 
 ```{r, echo=F, message=F}
@@ -141,10 +140,3 @@ x_train <- x[training_rows,]
 y_test <- y[-training_rows,]
 x_test <- x[-training_rows,]
 ```
-
-
-
-
-
-
-
