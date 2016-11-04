@@ -6,60 +6,72 @@
 # + pls_fit a PLS model to standardized credit dataset
 # + make predictions using training/testing sets
 # + pls_fit model on full data
+#
+# output file: ../../data/regression/fit-pls.RData
 # ==============================================================================
 
+
+# ==============================================================================
 # load data
+# ==============================================================================
+
 library(pls)
 
+# ==============================================================================
 # load training-testing data
+# ==============================================================================
+
 load("../../data/train-test.RData")
 
-# pls_fit the PLS model
 
+# ==============================================================================
+# fit the PLS model
+# ==============================================================================
 pls_fit <- plsr(y_train ~ x_train,
                 scale = FALSE,
                 validation = "CV")
 
 
 
+# ==============================================================================
 # select best model
+# ==============================================================================
 pls_best_model <- which.min(pls_fit$validation$PRESS) #best number of components
 
+# ==============================================================================
 # plot tuning parameter
-# png("../../images/plsr-validation-plot.png")
-validationplot(pls_fit, val.type = "MSEP")
-# dev.off()
+# ==============================================================================
+pls_validationplot <- validationplot(pls_fit, val.type = "MSEP")
 
-# coefficients of our pls_fit
-coef(pls_fit)
 
-# compute mean square error
+# ==============================================================================
+# compute mean square error and predictions
+# ==============================================================================
 pls_predictions <- predict(pls_fit, x_test, s = pls_best_model)
 
 pls_mse <- mean((y_test - pls_predictions)^2)
 
+# ==============================================================================
 # official pls_fit on full dataset
-full_data_pls_fit <- plsr(y ~ x,
+# ==============================================================================
+pls_full_data_fit <- plsr(y ~ x,
                           scale = FALSE,
                           validation = "CV",
                           ncomp = pls_best_model)
-<<<<<<< HEAD
 
-coef(full_data_pls_fit)
 
+pls_coefficients <- coef(pls_full_data_fit)
+
+
+# ==============================================================================
 # save official pls_fit as .RDdata
-
-save(full_data_pls_fit, file = "../../data/pls-fit.RData")
-
-
-=======
-coef(full_data_pls_fit)
-
-# save official pls_fit as .RDdata
+# ==============================================================================
 save(pls_fit,
      pls_best_model, 
      pls_predictions, 
-     pls_mse, 
-     full_data_pls_fit, 
+     pls_mse,
+     pls_validationplot,
+     pls_full_data_fit,
+     pls_coefficients,
      file = "../../data/regression/fit-pls.RData")
->>>>>>> 8afd598d90ab8c5d0034a9937e85660e2e41e590
+
