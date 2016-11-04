@@ -36,9 +36,9 @@ ols_mse <- mean(summary(lm(y_test~x_test)$residuals^2))
 # Refit the OLS regression on the full data set
 # ==============================================================================
 # official fit on full dataset
-full_data_ols_fit <- lm(y~x)
+ols_full_data_fit <- lm(y~x)
 
-coef(full_data_ols_fit)
+ols_coefficients <- coef(ols_full_data_fit)
 
 # ==============================================================================
 # Save relevant objects in fit-ols.RData
@@ -46,5 +46,6 @@ coef(full_data_ols_fit)
 save(ols_fit,
      ols_fit_sum, 
      ols_mse, 
-     full_data_ols_fit, 
+     ols_full_data_fit, 
+     ols_coefficients,
      file = "../../data/regression/fit-ols.RData")
