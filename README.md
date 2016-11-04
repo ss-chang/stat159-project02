@@ -36,8 +36,17 @@ data/
 report/
 + 00-abstract.Rmd
 + 01-introduction.Rmd
-+ 02-methods.Rmd
-+ 03-
-+ 04-
++ 02-data.Rmd
++ 03-methods.Rmd
++ 04-analysis.Rmd
++ 05-results.Rmd
++ 06-conclusions.Rmd
+
+
+
+
+
+
+
 
   
