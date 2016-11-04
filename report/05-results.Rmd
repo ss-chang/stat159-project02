@@ -1,0 +1,34 @@
+---
+output: pdf_document
+---
+
+```{r, eval = TRUE, echo = FALSE, message = FALSE, warning=FALSE}
+library(ggplot2)
+load("../data/regression/fit-ols.RData")
+load("../data/regression/fit-ridge.RData")
+load("../data/regression/fit-lasso.RData")
+load("../data/regression/fit-pcr.RData")
+load("../data/regression/fit-pls.RData")
+
+official_coeffs <- as.vector(c(ols_coefficients[2:12],
+                               ridge_coefficients[2:12], 
+                               lasso_coefficients[2:12], 
+                               pcr_coefficients, 
+                               pls_coefficients))
+predictors <- as.vector(rep(names(lasso_full_data_fit$beta[, 1]), 5))
+method <- as.vector(c(rep("OLS", 11), 
+                      rep("Ridge", 11),
+                      rep("LASSO", 11), 
+                      rep("PCR", 11), 
+                      rep("PLS", 11)))
+
+coeff_comp <- data.frame(OfficialCoefficient = official_coeffs,
+                         "Predictor" = predictors,
+                         "Method" = method)
+
+ggplot(data = coeff_comp, 
+       aes(x = Predictor, y = OfficialCoefficient, fill = Method)) +
+geom_bar(stat = "identity") +
+facet_wrap(~ Method) + 
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
