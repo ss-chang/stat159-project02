@@ -74,8 +74,7 @@ ridge_coefficients <- coef(ridge_full_data_fit)
 save(ridge_fit,
      ridge_best_lambda, 
      ridge_predictions, 
-     ridge_mse, 
-     ridge_plot,
+     ridge_mse,
      ridge_coefficients,
      ridge_full_data_fit, 
      file = "../../data/regression/fit-ridge.RData")

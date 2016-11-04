@@ -34,7 +34,14 @@ pcr_best_model <- which.min(pcr_fit$validation$PRESS) #best number of components
 # ==============================================================================
 # Produce visualization of which parameter gives the "best" model
 # ==============================================================================
-pcr_validationplot <- validationplot(pcr_fit, val.type = "MSEP")
+
+png("../../images/regression-plots/pcr-plot.png")
+validationplot(pcr_fit, val.type = "MSEP")
+dev.off()
+
+pdf("../../images/regression-plots/pcr-plot.pdf")
+validationplot(pcr_fit, val.type = "MSEP")
+dev.off()
 
 
 # ==============================================================================

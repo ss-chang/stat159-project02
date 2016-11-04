@@ -39,7 +39,15 @@ lasso_best_model <- lasso_fit$lambda.min
 # ==============================================================================
 # plot tuning parameter
 # ==============================================================================
-lasso_plot <- plot(lasso_fit)
+
+png("../../images/regression-plots/lasso-plot.png")
+plot(lasso_fit)
+dev.off()
+
+pdf("../../images/regression-plots/lasso-plot.pdf")
+plot(lasso_fit)
+dev.off()
+
 
 # ==============================================================================
 # compute mean square error
@@ -67,7 +75,6 @@ save(lasso_fit,
      lasso_best_model, 
      lasso_predictions, 
      lasso_mse, 
-     lasso_plot,
      lasso_coefficients,
      lasso_full_data_fit, 
      file = "../../data/regression/fit-lasso.RData")

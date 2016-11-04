@@ -41,7 +41,16 @@ pls_best_model <- which.min(pls_fit$validation$PRESS) #best number of components
 # ==============================================================================
 # plot tuning parameter
 # ==============================================================================
-pls_validationplot <- validationplot(pls_fit, val.type = "MSEP")
+
+png("../../images/regression-plots/pls-plot.png")
+validationplot(pls_fit, val.type = "MSEP")
+dev.off()
+
+pdf("../../images/regression-plots/pls-plot.pdf")
+validationplot(pls_fit, val.type = "MSEP")
+dev.off()
+
+
 
 
 # ==============================================================================
@@ -70,7 +79,6 @@ save(pls_fit,
      pls_best_model, 
      pls_predictions, 
      pls_mse,
-     pls_validationplot,
      pls_full_data_fit,
      pls_coefficients,
      file = "../../data/regression/fit-pls.RData")
