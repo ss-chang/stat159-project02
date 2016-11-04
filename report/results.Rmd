@@ -3,52 +3,27 @@ output: pdf_document
 ---
 #results
 
-We now look at the results of fitting four regression models to our dataset. We report results of each method individually. We then compare the performance within each type (dimensionality reduction methods and shrinkage methods). Finally, we evaluate the performance of all models with Ordinary Least Squares, seeing which model or type of model produced the best fit.
+We now look at the results of fitting four regression models to our dataset, evaluating regresson coefficients and MSE values to find a best fit.
 
-
-## Dimensionality Reduction Methods
-
-
-### Partial Least Squares Regression
 
 ```{r, echo=F}
 load("../data/regression/fit-pls.RData")
 ```
 
 
-### Principal Component Regression
-
 ```{r, echo=F}
 load("../data/regression/fit-pcr.RData")
 ```
 
-## Shrinkage Methods
-
-### LASSO Regression
 
 ```{r, echo=F, warning=F, message=F}
 load("../data/regression/fit-lasso.RData")
 ```
 
-The LASSO shrunk the predictors Education, Gender, Married, and Ethnicity to zero, leaving Income, Limit, Rating, Cards, Age and Student as significant predictors. The most significant predictor is Limit with a coefficient value of approximately 0.93.
-
-```{r xtable, echo=F, warning=F, message=F, results='asis'}
-#cat("LASSO Coefficients /n/n")
-
-#library(xtable)
-#coef_table <- xtable(as.matrix(coef(full_data_fit)))
-#print(coef_table, type="latex", comment = F, label = "Table 1")
-```
-
-### Ridge Regression
-
 ```{r, echo=F}
 load("../data/regression/fit-ridge.RData")
 ```
 
-
-
-## Comparing Methods
 
 ```{r, echo=F}
 load("../data/regression/fit-ols.RData")
@@ -56,28 +31,67 @@ load("../data/regression/fit-ols.RData")
 
 
 
+### Regression Coefficients
 
+Below is a table of all regression coefficients for each fit to the full dataset.
 
-coefficient table for all coefficients is here:
+```{r creating csv of coefficient matrix for xtable, echo=F, eval=F}
 
-```{r, echo=F}
-lasso_coef <- coef(full_data_lasso_fit)
-pls_coef <- coef(full_data_pls_fit)
-pcr_coef <- coef(pcr_full_data_fit)
-ridge_coef <- coef(full_data_ridge_fit)
+# creating matrix of all coefficients
+coefficient_matrix <- cbind(ridge_coefficients[-1],
+                            lasso_coefficients[-1],
+                            pcr_coefficients,
+                            pls_coefficients,
+                            ols_coefficients[-1])
 
-coefficient_matrix <- cbind(ridge_coef[-1,], pcr_coef, pls_coef, as.matrix(lasso_coef)[-1,])
-colnames(coefficient_matrix) <- c("Ridge","PCR", "PLS", "LASSO")
+# fixing row and column names
+rownames(coefficient_matrix) <- gsub("^x", "", rownames(coefficient_matrix))
 
+colnames(coefficient_matrix) <- c("ridge", "lasso", "pcr", "pls", "ols")
+
+coefficient_matrix <- as.data.frame(coefficient_matrix)
+
+# exporting
+write.csv(coefficient_matrix,
+          file="../data/coefficient-matrix.csv")
 ```
 
 
+```{r coefficient-xtable, echo=F, warning=F, message=F, results='asis'}
+library(xtable)
+
+coefficient_matrix <- read.csv("../data/coefficient-matrix.csv", row.names = 1)
+
+coefficient_table <- xtable(coefficient_matrix, digits=6)
+print(coefficient_table, type="latex", comment = F, label = "Table 1")
+```
+
+All models had coefficients within a very close range, with no surprising or easily-spotted differences. In all fits the largest positive coefficient is `Limit`, and the largest negative coefficient is `Income`, meaning that regardless of model, these are the most significant predictors in our dataset. Our Ridge model set slightly higher coefficients for `Ranking` and `Married(Yes)`. The LASSO shrunk the predictors `Education`, `Gender`, `Married`, and `Ethnicity` to zero, while all other methods had very small coefficient values for these predictors. 
 
 
+### MSE
 
-Table of all the MSE:
+We next look at the results of our predictions from models fit to the training data. The Mean Squared Errors for each method are shown below:
 
-Table of the Prediction errors for each train/test model:
+```{r, echo=F}
 
+# combining all mse
+all_mse <- c(ridge_mse, lasso_mse, pcr_mse, pls_mse, ols_mse)
+
+# round to four decimals
+all_mse <- round(all_mse, 5)
+
+all_mse_df <- data.frame("mse" = all_mse)
+rownames(all_mse_df) <- colnames(coefficient_matrix)
+```
+
+```{r mse-xtable, echo=F, warning=F, message=F, results='asis'}
+library(xtable)
+
+mse_table <- xtable(all_mse_df, digits = 5)
+print(mse_table, type="latex", comment = F, label = "Table 2")
+```
+
+Interestingly, all methods have very close MSE values, so it is not easy to select a best method. By lowest MSE our winner is Parial Least Squares Regression; however, re-fitting the model several times could result in slightly different prediction error rates for all method. Most importantly, all penalized regression methods out-performed Ordinary Least Squares, showing that for this dataset these methods did indeed improve the performance of a basic linear model.
 
 
