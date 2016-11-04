@@ -33,4 +33,11 @@ data/
   +fit-ridge.RData
   +fit-ols.RData
   
+report/
++ 00-abstract.Rmd
++ 01-introduction.Rmd
++ 02-methods.Rmd
++ 03-
++ 04-
+
   
