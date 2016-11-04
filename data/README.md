@@ -17,7 +17,17 @@ This folder contains all data files used in this project.
   + fit-ols.RData  
   Saved objects from code/scripts/regression-ols.R.
 
-
+  + fit-pcr.txt  
+  Saved objects from code/scripts/regression-pcr.R.
+  
+  + fit-lasso.txt  
+  Saved objects from code/scripts/regression-lasso.R.
+  
+  + fit-pls.txt  
+  Saved objects from code/scripts/regression-pls.R.
+  
+  + fit-ridge.txt  
+  Saved objects from code/scripts/regression-ridge.R.
 
 + anova/
   + anova-all.txt  
