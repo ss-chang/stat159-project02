@@ -43,10 +43,10 @@ mse <- mean((y_test - predictions)^2)
 # Refit the ridge regression on the full data set
 # ==============================================================================
 # official fit on full dataset
-full_data_fit <- pcr(y~x,
+pcr_full_data_fit <- pcr(y~x,
                      validation = "CV")
 
 # coef(full_data_fit)
 
 # save official fit as .RDdata
-# save(full_data_fit, file = "../../data/pcr-fit.RData")
+ save(pcr_full_data_fit, file = "../../data/pcr-fit.RData")

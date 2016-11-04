@@ -1,5 +1,5 @@
 # ==============================================================================
-# title: pls-regression.R
+# title: regression-pls.R
 # author: Nura Kawa
 # 
 # summary: 
@@ -26,7 +26,9 @@ pls_fit <- plsr(y_train ~ x_train,
 pls_best_model <- which.min(pls_fit$validation$PRESS) #best number of components
 
 # plot tuning parameter
+# png("../../images/plsr-validation-plot.png")
 validationplot(pls_fit, val.type = "MSEP")
+# dev.off()
 
 # coefficients of our pls_fit
 coef(pls_fit)
@@ -42,10 +44,10 @@ full_data_pls_fit <- plsr(y ~ x,
                           validation = "CV",
                           ncomp = pls_best_model)
 
-#coef(full_data_pls_fit)
+coef(full_data_pls_fit)
 
 # save official pls_fit as .RDdata
 
-#save(full_data_pls_fit, file = "../../data/regression/plsr-pls_fit.RData")
+save(full_data_pls_fit, file = "../../data/pls-fit.RData")
 
 
