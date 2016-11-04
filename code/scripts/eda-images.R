@@ -180,10 +180,11 @@ plot_qual_barcharts("pdf", ".pdf", "barcharts/")
 # ==============================================================================
 # Generating scatterplot matrix
 # ==============================================================================
-
 png("../../images/scatterplot-matrix.png")
 plot(quants)
 dev.off()
 
-
+pdf("../../images/scatterplot-matrix.png")
+plot(quants)
+dev.off()
 
