@@ -2,10 +2,7 @@
 output: pdf_document
 ---
 
----
-output: pdf_document
----
-#results
+# Results
 
 We now look at the results of fitting four regression models to our dataset, evaluating regresson coefficients and MSE values to find a best fit.
 

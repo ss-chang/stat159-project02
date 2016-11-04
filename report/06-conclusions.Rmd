@@ -2,7 +2,7 @@
 output: pdf_document
 ---
 
-# conclusions
+# Conclusions
 
 Our results show highly similar test MSE values and coefficients. The question now becomes the selection of a "winning method". Ultimately, we find that our best method is Partial Least Squares Regression due to its having the smallest Mean Squared Error.
 

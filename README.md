@@ -31,24 +31,25 @@ code/
   
 data/
 + regression/  
-  +fit-pcr.RData  
-  +fit-lasso.RData  
-  +fit-pls.RData  
-  +fit-ridge.RData  
-  +fit-ols.RData  
-+anova/
-  +anova-all.txt  
-  +anova-Ethnicity.txt  
-  +anova-Gender.txt  
-  +anova-Married.txt  
-  +anova-Student.txt  
-Credit.csv
-Credit-scaled.csv
-train-test.RData
-eda-output.txt
-eda-text-output.RData
-prop-table-quals.RData
-coefficient-matrix.csv
+  + fit-pcr.RData  
+  + fit-lasso.RData  
+  + fit-pls.RData  
+  + fit-ridge.RData  
+  + fit-ols.RData  
++ anova/  
+  + anova-all.txt  
+  + anova-Ethnicity.txt  
+  + anova-Gender.txt  
+  + anova-Married.txt  
+  + anova-Student.txt   
+  
+Credit.csv  
+Credit-scaled.csv  
+train-test.RData  
+eda-output.txt  
+eda-text-output.RData   
+prop-table-quals.RData  
+coefficient-matrix.csv  
   
 images/   
 + qualitative/
@@ -126,9 +127,9 @@ report/
 + 05-results.Rmd
 + 06-conclusions.Rmd
 
-gitignore
-LICENSE
-Makefile
-README.md
-session.sh
-session-info.txt
+gitignore  
+LICENSE  
+Makefile   
+README.md  
+session.sh  
+session-info.txt  
