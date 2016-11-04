@@ -1,0 +1,28 @@
+pcr Regression Objects
+
+pcr fit
+
+Principal component regression , fitted with the singular value decomposition algorithm.
+Cross-validated using 10 random segments.
+Call:
+pcr(formula = y_train ~ x_train, scale = FALSE, validation = "CV")
+pcr best model
+
+[1] 11
+pcr coefficients
+
+, , 11 comps
+
+                              y
+Income             -0.598171486
+Limit               0.958438722
+Rating              0.382478949
+Cards               0.052864969
+Age                -0.023033397
+Education          -0.007469459
+GenderFemale       -0.011593092
+StudentYes          0.278154853
+MarriedYes         -0.009054196
+EthnicityAsian      0.015950671
+EthnicityCaucasian  0.011005286
+
