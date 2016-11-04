@@ -18,10 +18,12 @@
 
 
 # ==============================================================================
-# Read in Credit.csv data set
+# Read in Credit.csv data set and other relevant file(s)
 # ==============================================================================
 library(readr)
 credit <- read.csv(file = "../../data/Credit.csv", row.names = 1)
+
+source("../functions/range-as-value.R")
 
 
 
@@ -55,6 +57,12 @@ quants <- sapply(credit, is.numeric)
 quants <- credit[,quants]
 quants_sum<- summary(quants)
 print(quants_sum)
+cat("\n\n\n\n\n")
+
+# Ranges
+cat("Ranges:\n")
+quants_ranges <- round(apply(quants, 2, range_as_value), 0) 
+print(quants_ranges)
 cat("\n\n\n\n\n")
 
 # Standard deviations
@@ -144,7 +152,8 @@ for(j in 2:ncol(quals))
 # ==============================================================================
 # Export objects needed for report compilation
 # ==============================================================================
-save(quants_cor, 
+save(quants_ranges, 
+     quants_cor, 
      file = "../../data/eda-text-output.RData")
 
 save(prop_table_total_frequencies, file="../../data/prop-table-quals.RData")
