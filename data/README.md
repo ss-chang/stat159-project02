@@ -20,20 +20,20 @@ This folder contains all data files used in this project.
 
 
 + anova/
-  + anova-all.txt  
-  ANOVA ouput for all predictors on `Balance`
+  + anova-all.txt    
+  ANOVA ouput for all predictors on `Balance`  
   
-  + anova-Ethnicity.txt
-  ANOVA ouput for `Ethnicity` predictor on `Balance`
+  + anova-Ethnicity.txt  
+  ANOVA ouput for `Ethnicity` predictor on `Balance`  
   
-  + anova-Gender.txt
-  ANOVA ouput for `Gender` predictor on `Balance`
+  + anova-Gender.txt  
+  ANOVA ouput for `Gender` predictor on `Balance`  
   
-  + anova-Married.txt
-  ANOVA ouput for `Married` predictor on `Balance`
+  + anova-Married.txt  
+  ANOVA ouput for `Married` predictor on `Balance`  
   
-  + anova-Student.txt 
-  ANOVA ouput for `Student` predictor on `Balance`
+  + anova-Student.txt   
+  ANOVA ouput for `Student` predictor on `Balance`  
 
 
 + Credit.csv   
