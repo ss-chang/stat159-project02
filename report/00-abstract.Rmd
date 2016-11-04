@@ -1,0 +1,7 @@
+---
+output: pdf_document
+---
+  
+# abstract
+  
+The goal of modeling data is to be able to predict future observations with high accuracy and minimal error. In previous papers we have discussed in detail the _Linear Model_, which uses Least-Squares approximation to regress a response variable on a matrix of predictors. In this paper we discuss performance issues of the Multiple Linear Regression model when fit to large or highly-correlated datasets, such as overfitting. We focus on algorithms created that improve this linear model through dimensionality reduction and shrinkage methods, namely: Partial Least Squares Regression, Principal Component Regression, Ridge Regression, and LASSO.
