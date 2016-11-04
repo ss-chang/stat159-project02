@@ -21,4 +21,4 @@ load("../../data/eda-text-output.RData")
 # ==============================================================================
 # Execute test for test-range-as-value.R
 # ==============================================================================
-test_file("tests/test-range-as-value.R")
+test_file("test-range-as-value.R")
