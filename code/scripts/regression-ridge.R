@@ -56,7 +56,7 @@ dev.off()
 # Compute mean square error for the test set
 # ==============================================================================
 # compute mean square error
-ridge_predictions <- predict(ridge_fit, x_test, s = ridge_best_lambda)
+ridge_predictions <- predict(ridge_fit, x_test, s = ridge_best_model)
 
 ridge_mse <- mean((y_test - ridge_predictions)^2)
 
