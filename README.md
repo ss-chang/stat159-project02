@@ -121,6 +121,7 @@ pca-screeplot-bad.png
 pca-screeplot-good.png  
 scatterplot-matrix.pdf  
 scatterplot-matrix.png  
+ISLR-book.png
   
 report/
 + 00-abstract.Rmd
@@ -130,6 +131,10 @@ report/
 + 04-analysis.Rmd
 + 05-results.Rmd
 + 06-conclusions.Rmd
+
+slides/
+slides.Rmd
+slides.html
 
 gitignore  
 LICENSE  
