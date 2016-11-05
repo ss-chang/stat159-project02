@@ -6,11 +6,11 @@ all: eda regressions report
 
 # Complete regression analysis
 regressions:
-    make ols
-    make ridge
-    make lasso
-    make pcr
-    make plsr
+	make ols
+	make ridge
+	make lasso
+	make pcr
+	make plsr
 
 
 
@@ -49,12 +49,13 @@ pcr:
 plsr: 
 	cd code/scripts; Rscript -e 'source("regression-pls.R")'
 
-# Generate report.pdf file
+# Compile report.pdf file
 report:
 	cd report; Rscript -e "library(rmarkdown); render('report.Rmd', 'pdf_document')"
 
 # Generate slides.html file
-
+slides:
+	cd slides; Rscript -e "library(rmarkdown); render('slides.Rmd', 'ioslides_presentation')"
 
 # Clean output file
 clean:
@@ -62,4 +63,4 @@ clean:
 
 # Generate session information text file
 session:
-    bash session.sh
+	bash session.sh
