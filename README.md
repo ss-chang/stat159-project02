@@ -132,9 +132,9 @@ report/
 + 05-results.Rmd
 + 06-conclusions.Rmd
 
-slides/
-slides.Rmd
-slides.html
+slides/  
++ slides.Rmd  
++ slides.html  
 
 gitignore  
 LICENSE  
