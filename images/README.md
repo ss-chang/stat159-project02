@@ -73,5 +73,6 @@ coefficient-plot.png
 pca-screeplot-bad.png   
 pca-screeplot-good.png   
 scatterplot-matrix.pdf   
-scatterplot-matrix.png   
+scatterplot-matrix.png  
+ISLR-book.png  
   
