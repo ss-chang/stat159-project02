@@ -14,55 +14,55 @@ We use a dataset called `Advertising`, which the authors have made available pub
 To recreate the analysis detailed throughout this project, clone this repository to a local directory. Enter `make` in bash to execute the Makefile and subsequent commands for reproducing our work.
 
 ## Make commands for phony targets
-Download Credit.csv
-data : 
-  cd data; curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv >> Credit.csv
-
-Execute unit tests on regression functions
-tests: 
-  cd code/tests; Rscript -e 'source("test-that.R")'
-
-Perform exploratory data analysis
-eda : 
-  cd code/scripts; Rscript -e 'source("eda-images.R")'
-  cd code/scripts; Rscript -e 'source("eda-text.R")'
-
-Execute OLS regression analysis
-ols: 
-  cd code/scripts; Rscript -e 'source("regression-ols.R")'
-
-Execute ridge regression analysis
-ridge: 
-  cd code/scripts; Rscript -e 'source("regression-ridge.R")'
-
-Execute least absolute shrinkage and selection operator regression analysis
-lasso: 
-  cd code/scripts; Rscript -e 'source("regression-lasso.R")'
-
-Execute principal components regression analysis
-pcr: 
-  cd code/scripts; Rscript -e 'source("regression-pcr.R")'
-
-Execute partial least squares regression analysis
-plsr: 
-  cd code/scripts; Rscript -e 'source("regression-pls.R")'
-
-Compile report.pdf file
-report:
-  cd report; Rscript -e "library(rmarkdown); render('report.Rmd', 'pdf_document')"
-
-Generate slides.html file
-slides:
-  cd slides; Rscript -e "library(rmarkdown); render('slides.Rmd', 'ioslides_presentation')"
-
-Clean output file
-clean:
-  cd report; rm -f report.pdf
-
-Generate session information text file
-session:
-  bash session.sh
-
+Download Credit.csv  
+data :  
+  cd data; curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv >> Credit.csv  
+  
+Execute unit tests on regression functions  
+tests:     
+  cd code/tests; Rscript -e 'source("test-that.R")'  
+  
+Perform exploratory data analysis  
+eda :   
+  cd code/scripts; Rscript -e 'source("eda-images.R")'  
+  cd code/scripts; Rscript -e 'source("eda-text.R")'  
+  
+Execute OLS regression analysis  
+ols:   
+  cd code/scripts; Rscript -e 'source("regression-ols.R")'  
+  
+Execute ridge regression analysis  
+ridge:   
+  cd code/scripts; Rscript -e 'source("regression-ridge.R")'  
+  
+Execute least absolute shrinkage and selection operator regression analysis  
+lasso:   
+  cd code/scripts; Rscript -e 'source("regression-lasso.R")'  
+  
+Execute principal components regression analysis  
+pcr:   
+  cd code/scripts; Rscript -e 'source("regression-pcr.R")'  
+  
+Execute partial least squares regression analysis  
+plsr:   
+  cd code/scripts; Rscript -e 'source("regression-pls.R")'  
+  
+Compile report.pdf file  
+report:  
+  cd report; Rscript -e "library(rmarkdown); render('report.Rmd', 'pdf_document')"  
+  
+Generate slides.html file  
+slides:  
+  cd slides; Rscript -e "library(rmarkdown); render('slides.Rmd', 'ioslides_presentation')"  
+  
+Clean output file  
+clean:  
+  cd report; rm -f report.pdf  
+  
+Generate session information text file  
+session:  
+  bash session.sh  
+  
 ## license:
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
