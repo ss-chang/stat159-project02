@@ -84,3 +84,25 @@ save(pls_fit,
      pls_coefficients,
      file = "../../data/regression/fit-pls.RData")
 
+
+# ==============================================================================
+# sink as .txt 
+# ==============================================================================
+sink("../../data/regression/fit-pls.txt")
+
+cat("pls Regression Objects\n\n")
+
+cat("pls fit\n\n")
+
+pls_fit
+
+cat("pls best model\n\n")
+
+pls_best_model
+
+cat("pls coefficients\n\n")
+
+pls_coefficients
+
+sink()
+

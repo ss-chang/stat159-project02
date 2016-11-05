@@ -1,0 +1,28 @@
+pls Regression Objects
+
+pls fit
+
+Partial least squares regression , fitted with the kernel algorithm.
+Cross-validated using 10 random segments.
+Call:
+plsr(formula = y_train ~ x_train, scale = FALSE, validation = "CV")
+pls best model
+
+[1] 10
+pls coefficients
+
+, , 10 comps
+
+                              y
+Income             -0.598169520
+Limit               0.958435942
+Rating              0.382480016
+Cards               0.052852662
+Age                -0.023026921
+Education          -0.007482106
+GenderFemale       -0.011628232
+StudentYes          0.278162866
+MarriedYes         -0.009084754
+EthnicityAsian      0.015951453
+EthnicityCaucasian  0.010998383
+

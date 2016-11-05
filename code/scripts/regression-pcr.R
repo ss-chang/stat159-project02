@@ -79,4 +79,26 @@ save(pcr_fit,
      pcr_coefficients,
      file = "../../data/regression/fit-pcr.RData")
 
+# ==============================================================================
+# sink as .txt 
+# ==============================================================================
+sink("../../data/regression/fit-pcr.txt")
+
+cat("pcr Regression Objects\n\n")
+
+cat("pcr fit\n\n")
+
+pcr_fit
+
+cat("pcr best model\n\n")
+
+pcr_best_model
+
+cat("pcr coefficients\n\n")
+
+pcr_coefficients
+
+sink()
+
+
  

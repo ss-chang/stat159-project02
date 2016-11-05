@@ -125,7 +125,7 @@ quals <- cbind(credit$Balance, quals)
 colnames(quals)[1] <- "balance"
 
 # Run anova on all options and sink the data into a textfile
-sink("../../data/anova-all.txt")
+sink("../../data/anova/anova-all.txt")
 cat("ANOVA: balance ~ .\n\n")
 aov(balance ~ ., data = quals)
 sink()
@@ -133,7 +133,7 @@ sink()
 
 for(j in 2:ncol(quals))
 {
-  doc_title <- paste0("../../data/anova-", colnames(quals)[j],
+  doc_title <- paste0("../../data/anova/anova-", colnames(quals)[j],
                       ".txt")
   # save as text file
   sink(doc_title)

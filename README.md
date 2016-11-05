@@ -35,6 +35,10 @@ data/
   + fit-lasso.RData  
   + fit-pls.RData  
   + fit-ridge.RData  
+  + fit-pcr.txt  
+  + fit-lasso.txt  
+  + fit-pls.txt  
+  + fit-ridge.txt  
   + fit-ols.RData  
 + anova/  
   + anova-all.txt  
