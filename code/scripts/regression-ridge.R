@@ -69,7 +69,7 @@ ridge_mse <- mean((y_test - ridge_predictions)^2)
 ridge_full_data_fit <- glmnet(x,
                         y,
                         alpha = 0, # RIDGE parameter
-                        lambda = ridge_best_lambda,
+                        lambda = ridge_best_model,
                         standardize = FALSE,
                         intercept = FALSE)
 
@@ -81,7 +81,7 @@ ridge_coefficients <- coef(ridge_full_data_fit)
 # save official fit as .RDdata
 # ==============================================================================
 save(ridge_fit,
-     ridge_best_lambda, 
+     ridge_best_model, 
      ridge_predictions, 
      ridge_mse,
      ridge_coefficients,
