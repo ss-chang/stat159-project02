@@ -6,5 +6,6 @@ output: pdf_document
 
 The linear model is popular and often accurate, but not without its downfalls. The recent increase in availability and dimensionality of data has introduced scenarios where the ordinary Least-Squares regression method performs poorly on certain datasets. As a result, statisticians and mathematicians have developed algorithms that are improvements on the linear model. This paper reproduces content from the book _Introduction to Statistical Learning_ by Hastie, Tibshirani, James, and Witten, which discusses four penalized regression algorithms, fits these models to data, and evaluates results. 
 
-The book uses a dataset called `Advertising`, which the authors have made available publically online for purposes of reproduction: http://math480-s15-zarringhalam.wikispaces.umb.edu/file/detail/Advertising.csv/538578560.  
+The book uses a dataset called `Credit`, which the authors have made available publically online for purposes of reproduction: http://www-bcf.usc.edu/~gareth/ISL/data.html
+
 
